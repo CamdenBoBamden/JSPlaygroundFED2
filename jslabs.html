@@ -30,7 +30,9 @@
     <!--Collapsible nav-->
     <nav class="navbar-default navbar-fixed-top">
         <a href="index.html" class="navbar-brand">JavaScript Playground</a>
-        <ul class="topnav">
+        <a href="javascript:void(0)" class="pull-right" onclick="toggleNav()" id="menu-btn">&#9776</a>
+
+        <ul class="topnav" id="nav-list">
             <li>
                 <a href="index.html">
                     <span class="glyphicon glyphicon-home"></span> Home
@@ -89,22 +91,22 @@
         <div class="row">
             <article class="col-md-4">
                 <div>
-                    <input type="text" id="tbCountry" placeholder="Country" />
+                    <input type="text" class="form-control" id="tbCountry" placeholder="Country" />
                 </div>
                 <div>
-                    <input type="text" id="tbAdjective" placeholder="Adjective" />
+                    <input type="text" class="form-control" id="tbAdjective" placeholder="Adjective" />
                 </div>
                 <div>
-                    <input type="text" id="tbAnimal" placeholder="Animal" />
+                    <input type="text" class="form-control" id="tbAnimal" placeholder="Animal" />
                 </div>
                 <div>
-                    <input type="text" id="tbVerb" placeholder="Verb" />
+                    <input type="text" class="form-control" id="tbVerb" placeholder="Verb" />
                 </div>
                 <div>
-                    <input type="text" id="tbPlace" placeholder="Place" />
+                    <input type="text" class="form-control" id="tbPlace" placeholder="Place" />
                 </div>
                 <div>
-                    <input type="text" id="tbLiquid" placeholder="Liquid" />
+                    <input type="text" class="form-control" id="tbLiquid" placeholder="Liquid" />
                 </div>
                 <!-- Button that calls a function -->
                 <div>
@@ -113,27 +115,139 @@
                 </div>
                 <p id="madLibResults"></p>
 
-
-
             </article>
-        </div>
-        <div class="row">
+
+
             <article class="col-md-4">
                 <h2>Multiples of 7</h2>
                 <!-- btn calls a function -->
-                <input type="button" class="btn btn-success" value="Show multiples of 7 to 30" onclick="showMultiplesOfSeven()"/>
+                <input type="button" class="btn btn-success" value="Show multiples of 7 to 30" onclick="showMultiplesOfSeven()" />
                 <div>
                     <span id="sevenOutput"></span>
                 </div>
             </article>
+            <!-- _________________________CELSIUS CONVERTER______________________ -->
+            <article class="col-md-4">
+                <h2>Celsius Converter</h2>
+                <p>
+                    Enter a temperature that is Celsius that you would like to convert to Fahrenheit.
+                </p>
+                <!-- btn calls a function -->
+                <input type="number" id="userTemp" class="form-control" placeholder="Enter Temperature in Celsius" />
+                <input type="button" class="btn btn-success" value="Convert" onclick="convertCeltoFah()" />
+                <div>
+                    <span id="fahOutput"></span>
+                </div>
+            </article>
         </div>
-    </main>
+
+        <div class="row">
+            <!-- _________________________Area Calculator________________________ -->
+            <article class="col-md-4">
+                <h2>Calculate Area</h2>
+                <p>
+                    Enter in your values you need to calculate an area.
+                </p>
+                <input type="number" class="form-control" id="squareHeight" placeholder="height" />
+                <input type="number" class="form-control" id="squareWidth" placeholder="width" />
+                <input type="button" class="btn btn-danger" value="Area of Square" onclick="areaOfSquare()" />
+                <div>
+                    <span id="squareArea"></span>
+                </div>
+            </article>
+            <article class="col-md-4">
+                <h2>Calculate Area of a Triangle</h2>
+                <p>
+                    Enter in your values you need to calculate an area.
+                </p>
+                <input type="number" class="form-control" id="triangleHeight" placeholder="height of triangle" />
+                <input type="number" class="form-control" id="triangleWidth" placeholder="width of triangle" />
+                <input type="button" class="btn btn-danger" value="Area of Triangle" onclick="areaOfTriangle()" />
+                <div>
+                    <span id="triangleArea"></span>
+                </div>
+            </article>
+            <article class="col-md-4">
+                <h2>Calculate Area of a Circle</h2>
+                <p>
+                    Enter in your values you need to calculate an area.
+                </p>
+                <input type="number" class="form-control" id="circleHeight" placeholder="radius" />
+                <input type="button" class="btn btn-danger" value="Area of Circle" onclick="areaOfCircle()" />
+                <div>
+                    <span id="circleArea"></span>
+                </div>
+            </article>
+            </div>
+        <div class="row">
+            <!-- _________________________Ring Area Calculator________________________ -->
+            <article class="col-md-4">
+                <h2>Calculate Ring Area</h2>
+                <p>
+                    Enter in your values you need to calculate an area for a ring.
+                </p>
+                <input type="number" class="form-control" id="outerRadius" placeholder="outer radius" />
+                <input type="number" class="form-control" id="innerRadius" placeholder="inner radius" />
+                <input type="button" class="btn btn-block" value="Area of Ring" onclick="areaOfRing()" />
+                <div>
+                    <span id="ringArea"></span>
+                </div>
+            </article>
+            <!-- _________________________Change Calculator__________________________ -->
+            <article class="col-md-4">
+                <h2>Calculate Change</h2>
+                <p>
+                    Enter an amount in which you are needing change.
+                </p>
+                <input type="number" class="form-control" id="inputChange" placeholder="Amount needed in change" />
+                <input type="button" class="btn btn-block" value="CalcChange" onclick="changeCalc()" />
+                <div>
+                    <span id="changeGiven"></span>
+                </div>
+            </article>
+            <!-- _________________________Calculator__________________________ -->
+            <article class="col-md-4">
+                <h2>Calculate</h2>
+                <p>
+                    Enter numbers to calculator.
+                </p>
+                <input type="number" class="form-control" id="inputNbr1" placeholder="Number" />
+                <input type="number" class="form-control" id="inputNbr2" placeholder="Number" />
+                <input type="button" class="btn btn-danger" value="+" onclick="addition()" />
+                <input type="button" class="btn btn-danger" value="-" onclick="subtraction()" />
+                <input type="button" class="btn btn-danger" value="x" onclick="multiply()" />
+                <input type="button" class="btn btn-danger" value="/" onclick="division()" />
+                <div>
+                    <span id="answer"></span>
+                </div>
+            </article>
+
+            <!-- _________________________Calculator Advanced__________________________ -->
+            <article class="col-md-4">
+                <h2>Calculator Advanced</h2>
+                <p>
+                    Enter numbers to calculator.
+                </p>
+                <input type="number" class="form-control" id="inputNbr11" placeholder="Number" />
+                <input type="number" class="form-control" id="inputNbr22" placeholder="Number" />
+                <input type="button" class="btn btn-danger" value="+" onclick="calcAdvanced('add')" />
+                <input type="button" class="btn btn-danger" value="-" onclick="calcAdvanced('sub')" />
+                <input type="button" class="btn btn-danger" value="x" onclick="calcAdvanced('multi')" />
+                <input type="button" class="btn btn-danger" value="/" onclick="calcAdvanced('divi')" />
+                <div>
+                    <span id="answer2"></span>
+                </div>
+            </article>
+
+        </div>
+
+</main>
     <!--/Main Content-->
     <!--Footer-->
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
             <p class="navbar-text pull-left">
-                &copy; 2019 - Your Name Here
+                &copy; <span id="currentYear"></span> - Your Name Here
             </p>
             <a href="#" class="btn navbar-btn btn-danger pull-right">
                 Go to the top!
@@ -146,6 +260,19 @@
     <!-- Bootstrap 3.3.7 minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jsLabs.js"></script>
+    <script>
+        function toggleNav() {
+            let navList = document.getElementById('nav-list');
+            navList.classList.toggle('expanded');
 
+            let btnMenu = document.getElementById('menu-btn');
+            if (navList.classList.contains('expanded')) {
+                btnMenu.innerHTML = "&times;";
+            }
+            else {
+                btnMenu.innerHTML = "&#9776;";
+            }
+        }
+    </script>
 </body>
 </html>
