@@ -48,7 +48,6 @@ function convertCeltoFah() {
  * Triangle = (height*width)/2
  * Circle = 3.14 * radius * radius
  * 
- * 
  *         <input type="number" class="form-control" id="squareHeight" placeholder="height" />
                 <input type="number" class="form-control" id="squareWidth" placeholder="width" />
                 <input type="button" class="btn btn-danger" value="Area of Square" onclick="areaOfSquare()"/>
@@ -69,11 +68,8 @@ function areaOfCircle() {
     let radius = document.getElementById('circleHeight').value;
     document.getElementById('circleArea').textContent = (3.14 * radius * radius) + " user unit of measure";
 }
-
-
-
 /*
- * RING AREA CALCULATORAllow a user to enter the outer radius and the inner radius of a ring.  Use those radii to calculate and display the area of the ring using the formulas below.Area of a circle = 3.14 * radius * radiusArea of a ring = Area of outer circle – area of inner circleORArea of a ring = 3.14(r12-r22)
+ * RING AREA CALCULATOR Allow a user to enter the outer radius and the inner radius of a ring.  Use those radii to calculate and display the area of the ring using the formulas below.Area of a circle = 3.14 * radius * radiusArea of a ring = Area of outer circle – area of inner circleORArea of a ring = 3.14(r12-r22)
  * 
  * 
  *                 <input type="number" class="form-control" id="outerRadius" placeholder="outer radius" />
@@ -86,7 +82,7 @@ function areaOfCircle() {
 function areaOfRing() {
     let outerRadius = document.getElementById('outerRadius').value;
     let innerRadius = document.getElementById('innerRadius').value;
-    document.getElementById('ringArea').textContent = 3.14 * outerRadius * outerRadius - 3.14 * innerRadius*innerRadius;
+    document.getElementById('ringArea').textContent = Math.abs(3.14 * outerRadius * outerRadius - 3.14 * innerRadius*innerRadius);
 }
 
 
@@ -108,9 +104,8 @@ function changeCalc() {
     let input = document.getElementById('inputChange').value;
     let output = document.getElementById('changeGiven');
 
-    if (input <100) {
-        input = input * 100;
-    }
+    input *= 100;
+ 
     let qNbr = 0;
     let dNbr = 0;
     let nNbr = 0;
@@ -133,7 +128,7 @@ function changeCalc() {
             nNbr++;
             input -= 5;
         } while (input >= 5);
-    }
+    } 
     if (input > 1) {
         do {
             pNbr++;
@@ -142,7 +137,6 @@ function changeCalc() {
     } 
     output.textContent = "Change: "+qNbr + " quarters " + dNbr + " dimes " + nNbr + " nickels " + pNbr + " pennies";
 }
-
 
 /*
  CALCULATORAllow a user to enter two numbers and to select one of the following arithmetic operations: add, subtract, multiply, divide.  Return the answer of the two numbers based on which operation button they clicked.
@@ -177,11 +171,6 @@ function division() {
     let userInput2 = parseInt(document.getElementById('inputNbr2').value);
     document.getElementById('answer').textContent = (userInput1 / userInput2);
     }
-
-
-
-
-
 
 /*
  CALCULATOR (ADVANCED)Allow a user to enter two numbers and to select one of the following arithmetic operations: add, subtract, multiply, divide.  Return the answer of the two numbers based on which operation button they clicked.  Complete the lab creating only one function that will calculate the correct answer regardless of which operation is selected.NOTE:  Google a JavaScript Switch/Case statement for help completing this lab.
@@ -218,7 +207,4 @@ function calcAdvanced(arg) {
             document.getElementById('answer2').textContent = "no";
             break;
     }
-
-
-
 }
